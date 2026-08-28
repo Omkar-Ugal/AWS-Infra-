@@ -3,7 +3,7 @@ module "ec2" {
 
   env            = "dev"
   instance_count = 1
-  ami            = "YOUR_AMI_ID"
+  ami            = "ami-01a00762f46d584a1"
   instance_type  = "t2.micro"
 
   key_public_path = "/home/omkar/.ssh/id_ed25519.pub"
