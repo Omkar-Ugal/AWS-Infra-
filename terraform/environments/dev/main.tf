@@ -9,7 +9,32 @@ module "ec2" {
   key_public_path = "/home/omkar/.ssh/id_ed25519.pub"
 
   common_tags = {
-    Project = "AWS-Infra"
+    Project     = "AWS-Infra"
     Environment = "dev"
+  }
+}
+
+module "s3" {
+  source = "../../modules/storage/s3"
+
+  env = "dev"
+
+  bucket_count = 1
+
+  common_tags = {
+    Project    = "AWS-Infra"
+    Enviroment = "dev"
+  }
+}
+
+module "DynamoDB" {
+  source = "../../modules/storage/dynamodb"
+  env    = "dev"
+
+  table_count = 1
+
+  common_tags = {
+    Project    = "AWS-Infra"
+    Enviroment = "dev"
   }
 }
