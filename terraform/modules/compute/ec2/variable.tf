@@ -1,5 +1,5 @@
 variable "env" {
-	description = "Enviroment name (from terraform.orkspace)
+	description = "Enviroment name (from terraform.workspace)"
 	type 	    = string
 }
 
@@ -9,7 +9,7 @@ variable "instance_count" {
 }
 
 variable "ami" {
-	description = "ami id for ec2 instances'
+	description = "ami id for ec2 instances"
 	type 	    = string
 }
 
@@ -19,7 +19,7 @@ variable "instance_type" {
 }
 
 variable "key_public_path" {
-	description = path to the SSh public key file"
+	description = "path to the SSh public key file"
 	type 	    = string
 }
 
