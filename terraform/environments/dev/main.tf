@@ -6,7 +6,7 @@ module "ec2" {
   ami            = "ami-01a00762f46d584a1"
   instance_type  = "t2.micro"
 
-  key_public_path = "/home/omkar/.ssh/id_ed25519.pub"
+  #key_public_path = "/home/omkar/.ssh/id_ed25519.pub"
 
   common_tags = {
     Project     = "AWS-Infra"
