@@ -21,7 +21,7 @@ variable "instance_type" {
 variable "key_public_path" {
   description = "path to the SSh public key file"
   type        = string
-  default = "null"
+  default     = "null"
 }
 
 variable "common_tags" {

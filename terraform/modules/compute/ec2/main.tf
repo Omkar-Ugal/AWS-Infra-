@@ -1,7 +1,7 @@
 #key pair
 resource "aws_key_pair" "ec2" {
   count = var.key_public_path != null ? 1 : 0
-  
+
   key_name   = "${var.env}-terra-automate-key"
   public_key = file(var.key_public_path)
 }
@@ -48,7 +48,7 @@ resource "aws_instance" "ec2" {
 
   ami                    = var.ami
   instance_type          = var.instance_type
-  key_name = var.key_public_path != null ? aws_key_pair.ec2[0].key_name : null
+  key_name               = var.key_public_path != null ? aws_key_pair.ec2[0].key_name : null
   vpc_security_group_ids = [aws_security_group.ec2.id]
 
   root_block_device {
