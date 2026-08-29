@@ -12,31 +12,31 @@ jobs:
   terraform:
     runs-on:  ubuntu-latest
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Setup terraform
-      uses: hashicorp/setup-terraform@v3
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v3
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id:  ${{ secret.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key:  ${{ secret.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:  ${{ secret.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key:  ${{ secret.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
 
-    - name: Terraform Format Check
-      run:  terraform fmt -check -recursive terraform/
+      - name: Terraform Format Check
+        run:  terraform fmt -check -recursive terraform/
 
-    - name: Terraform Init
-      working-directory:  terraform/enviroments/dev
-      run:  terraform init -backend=false
+      - name: Terraform Init
+        working-directory:  terraform/enviroments/dev
+        run:  terraform init -backend=false
 
-    - name: Terraform Validate
-      working-directory:  terraform/environments/dev
-      run:  terraform validate
-    
-    - name: Terraform Plan
-      working-directory: terraform/environments/dev
-      run: terraform plan
+      - name: Terraform Validate
+        working-directory:  terraform/environments/dev
+        run:  terraform validate
+      
+      - name: Terraform Plan
+        working-directory: terraform/environments/dev
+        run: terraform plan
