@@ -1,6 +1,6 @@
 resource "aws_dynamodb_table" "table" {
-  count     = var.table_count
-  name      = "${var.env}-terra-workspace-table-${count.index +1}" 
+  count        = var.table_count
+  name         = "${var.env}-terra-workspace-table-${count.index + 1}"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "id"
 
@@ -10,6 +10,6 @@ resource "aws_dynamodb_table" "table" {
   }
 
   tags = merge(var.common_tags, {
-    Name = "${var.env}-terra-workspace-table-${count.index +1}"
+    Name = "${var.env}-terra-workspace-table-${count.index + 1}"
   })
 }
